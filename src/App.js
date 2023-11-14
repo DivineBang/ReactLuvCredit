@@ -5,6 +5,15 @@ import './index.css';
 import FaqSection from "./components/FaqSection.jsx";
 import Quiz from "./components/Quiz.jsx";
 
+import { Link, animateScroll as scroll } from 'react-scroll';
+
+const scrollToSection = (sectionId) => {
+  scroll.scrollTo(sectionId, {
+    duration: 800,  
+    smooth: 'easeInOutQuart'  
+  });
+};
+
 function App() {
 
   const [preloaderVisible, setPreloaderVisible] = useState(true);
@@ -19,6 +28,7 @@ function App() {
     return () => clearTimeout(fakeLoading);
   }, []);
 
+ 
   return (
     <div className="App">
       {preloaderVisible && (
@@ -29,7 +39,7 @@ function App() {
     <header className="header" id="header">
 	    <div className="container">
             <div className="header__set">
-                <a href="#" className="logo">
+                <a href="#quiz" className="logo">
                     <img src="img/logo.png" alt="logo" className="logo__img"/>
                 </a>
                 <div className="rectangle__set">
@@ -69,7 +79,7 @@ function App() {
                 </div>
                 
                 
-                <a href="#" className="btn header__btn">
+                <a href="#quiz" className="btn header__btn">
                     Back
                 </a>
             </div>
@@ -102,13 +112,13 @@ function App() {
                         </p>
                         
                     </div>
-                    <img src="img/dollar.svg" alt="icon" className="offer__icon"/>
-                    <a href="#" className="btn btn__offer">
+                    <img src="img/dollar.svg" alt='dollar'  className="offer__icon"/>
+                    <a href="#quiz" className="btn btn__offer">
                         Back
                     </a>
                 </div>
                 <div className="offer__img">
-                    <img src="img/offer.png" alt="offer"/>
+                    <img src="img/offer.png" alt='offer' />
                 </div>
             </div>
         </div>
@@ -155,7 +165,7 @@ function App() {
                     <h2 className="quiz__title">
                         Complete this form to apply
                     </h2>
-                    <img src="img/Arrow2.svg" alt="arrow" className="quiz__img"/>
+                    <img src="img/Arrow2.svg" alt='arrow' className="quiz__img"/>
                     <p className="quiz__text">
                         No additional steps required
                     </p>
@@ -168,7 +178,7 @@ function App() {
         <div className="container">
             <div className="tab__set">
                 <div className="tab__wrapp">                  
-                    <img src="img/bank.svg" alt="bank" className="tab__img"/> 
+                    <img src="img/bank.svg" alt='bank' className="tab__img"/> 
                     <h4 className="tab__title">
                         Reliable lenders
                     </h4>
@@ -177,7 +187,7 @@ function App() {
                     </p>
                 </div>
                 <div className="tab__wrapp tab__wrapp_mod">                  
-                    <img src="img/date.svg" alt="date" className="tab__img"/> 
+                    <img src="img/date.svg" alt='date' className="tab__img"/> 
                     <h4 className="tab__title">
                         Speed is our priority
                     </h4>
@@ -186,7 +196,7 @@ function App() {
                     </p>
                 </div>
                 <div className="tab__wrapp">                  
-                    <img src="img/card.svg" alt="card" className="tab__img"/> 
+                    <img src="img/card.svg" alt='card' className="tab__img"/> 
                     <h4 className="tab__title">
                         Credit is your concern
                     </h4>
@@ -204,22 +214,22 @@ function App() {
 	    <div className="container">
             <div className="center ">
                 <div className="center-wrapp">                  
-                    <img src="img/slider1.svg" alt="photo" className="center-img"/>
+                    <img src="img/slider1.svg" alt='slider' className="center-img"/>
                 </div>
                 <div className="center-wrapp">                  
-                    <img src="img/slider2.svg" alt="photo" className="center-img"/>
+                    <img src="img/slider2.svg" alt='slider' className="center-img"/>
                 </div>
                 <div className="center-wrapp">                  
-                    <img src="img/slider3.svg" alt="photo" className="center-img"/>
+                    <img src="img/slider3.svg" alt='slider' className="center-img"/>
                 </div>
                 <div className="center-wrapp">                  
-                    <img src="img/slider4.svg" alt="photo" className="center-img"/>
+                    <img src="img/slider4.svg" alt='slider' className="center-img"/>
                 </div>
                 <div className="center-wrapp">                  
-                    <img src="img/slider5.svg" alt="photo" className="center-img"/>
+                    <img src="img/slider5.svg" alt='slider' className="center-img"/>
                 </div>
                 <div className="center-wrapp">                  
-                    <img src="img/slider6.svg" alt="photo" className="center-img"/>
+                    <img src="img/slider6.svg" alt='slider' className="center-img"/>
                 </div>        
             </div>
         </div>
@@ -249,9 +259,18 @@ function App() {
                 <h2 className="lender__title_second">
                     Just complete quick form to pick one of the best
                 </h2>
-                <a href="#quiz" className="btn lender__btn">
-                    Back
-                </a>
+                <Link
+                  to="quiz"
+                  spy={true}
+                  smooth={true}
+                  duration={800}
+                  className="btn lender__btn"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => scrollToSection('quiz')}
+                >
+                  Back
+                </Link>
+               
             </div>
             
         </div>
@@ -259,15 +278,15 @@ function App() {
     <section className="list" id="list">
 	    <div className="container">
             <div className="list__set">
-                <a href="#" className="list__item">About Us</a>
-                <a href="#" className="list__item">Why Choose Us</a>
-                <a href="#" className="list__item">Questions</a>
-                <a href="#" className="list__item">Definitions</a>
-                <a href="#" className="list__item">Rates & Fees</a>
-                <a href="#" className="list__item">Privacy Policy</a>
-                <a href="#" className="list__item">Terms of Use</a>
-                <a href="#" className="list__item">Disclaimer</a>
-                <a href="#" className="list__item">Contact</a>
+                <a href="#quiz" className="list__item">About Us</a>
+                <a href="#quiz" className="list__item">Why Choose Us</a>
+                <a href="#quiz" className="list__item">Questions</a>
+                <a href="#quiz" className="list__item">Definitions</a>
+                <a href="#quiz" className="list__item">Rates & Fees</a>
+                <a href="#quiz" className="list__item">Privacy Policy</a>
+                <a href="#quiz" className="list__item">Terms of Use</a>
+                <a href="#quiz" className="list__item">Disclaimer</a>
+                <a href="#quiz" className="list__item">Contact</a>
             </div>
         </div>
     </section>

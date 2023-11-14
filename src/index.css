@@ -408,6 +408,7 @@ ul,li{
 }
 .lender__btn{
   color:  #279ACB;
+  cursor: pointer;
   background:  #fff;
 }
 .lender__btn:hover{
