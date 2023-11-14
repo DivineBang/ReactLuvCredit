@@ -170,7 +170,8 @@ function App() {
                         No additional steps required
                     </p>
                 </div>
-                <Quiz />
+                
+                <Quiz/>
             </div>
         </div>
     </section>

@@ -1,27 +1,62 @@
 [
+    {
+      "id": 1,
+      "question": "How Much Do You Need?",
+      "answers": [
+        { "id": 1, "text": "$300 to $700" },
+        { "id": 2, "text": "$300 to $800" },
+        { "id": 3, "text": "$800 to $1,300" },
+        { "id": 4, "text": "$1,300 to $2,000" },
+        { "id": 5, "text": "$2,000 to $3,000" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is Your Credit Score?",
+      "answers": [
+        { "id": 6, "text": "Excellent Credit (720-850)" },
+        { "id": 7, "text": "Good Credit (690-719)" },
+        { "id": 8, "text": "Fair Credit (630-869)" },
+        { "id": 9, "text": "Bad Credit (300-629)" },
+        { "id": 10, "text": "Not Sure" }
+      ]
+    },
+    {
+        "id": 3,
+        "question": "What is This Loan For?",
+        "answers": [
+          {
+            "id": 11,
+            "text": "Select",
+            "type": "dropdown",
+            "options": ["Option 1", "Option 2", "Option 3"],
+            "placeholder": "Select an option"
+          }
+        ],
+        "just": "This assists lenders or networks of lenders in comprehending the intent behind your loan application. Kindly choose the option that most accurately represents the purpose of your loan."
+      },
+      {
+        "id": 4,
+        "question": "Email Address",
+        "answers": [
+          {
+            "id": 12,
+            "text": "Enter Your Email",
+            "type": "email",
+            "placeholder": "Enter Your Email"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "question": "Your Name",
+        "just": "Entering your full legal name may increase your chances of approval",
+        "answers": [
+            { "id": 13, "text": "First Name" },
+            { "id": 14, "text": "Last Name" }
+        ]
     
-    {
-      "title": "Чотири сира",
-      "price": 299,
-      "img": "./img/pizza-c.jpg",
-      "id": "1"
-    },
-    {
-      "title": "Мисливська",
-      "price": 156,
-      "img": "./img/pizza-m.jpg",
-      "id": "2"
-    },
-    {
-      "title": "Гавайська",
-      "price": 139,
-      "img": "./img/pizza-g.jpg",
-      "id": "3"
-    },
-    {
-      "title": "Американа",
-      "price": 210,
-      "img": "./img/pizza-a.jpg",
-      "id": "4"
-    }
+      }
+      
   ]
+  

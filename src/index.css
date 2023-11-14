@@ -156,15 +156,7 @@ ul,li{
   justify-content: space-between;
  
 }
-.quiz__form{
-  width: 850px;
-  height: 882px;
-  border-radius: 21px;
-  border: 1px solid #279ACB;
-  background:  #FFF;
 
-  box-shadow: 14px 15px 44px 0px rgba(0, 0, 0, 0.08), 126px 131px 109px 0px rgba(0, 0, 0, 0.04), 225px 232px 129px 0px rgba(0, 0, 0, 0.01), 351px 363px 141px 0px rgba(0, 0, 0, 0.00);
-}
 .quiz__title{
   font-size: 55px;
   font-weight: 500;
