@@ -22,13 +22,14 @@ function EmailAnswer({ answer, onChange, value }) {
   );
 }
 
-function CheckboxAnswer({ answer, onChange, checked }) {
+function TextInput({ answer, onChange, value }) {
   return (
-    <>
-      <input type="checkbox" checked={checked} onChange={onChange} />
-      <label onClick={onChange}>{answer.text}</label>
-      {checked && <span> Я подтверждаю обработку своих данных</span>}
-    </>
+    <input
+      type="text"
+      placeholder={answer.text}
+      value={value}
+      onChange={onChange}
+    />
   );
 }
 
@@ -36,7 +37,8 @@ function Quiz() {
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [emailInput, setEmailInput] = useState('');
-  const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const [firstNameInput, setFirstNameInput] = useState('');
+  const [lastNameInput, setLastNameInput] = useState('');
 
   const handleAnswerSelect = (questionId, answerId, answerType) => {
     setSelectedAnswers((prevAnswers) => ({
@@ -61,11 +63,33 @@ function Quiz() {
     setEmailInput(event.target.value);
   };
 
-  const handleCheckboxChange = () => {
-    setCheckboxChecked((prevChecked) => !prevChecked);
+  const handleFirstNameInput = (event, inputId) => {
+    const firstName = event.target.value;
+    setFirstNameInput(firstName);
+    setSelectedAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [quizData[activeQuestion].id]: {
+        ...prevAnswers[quizData[activeQuestion].id],
+        [inputId]: firstName,
+      },
+    }));
+  };
+  
+  const handleLastNameInput = (event, inputId) => {
+    const lastName = event.target.value;
+    setLastNameInput(lastName);
+    setSelectedAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [quizData[activeQuestion].id]: {
+        ...prevAnswers[quizData[activeQuestion].id],
+        [inputId]: lastName,
+      },
+    }));
   };
 
-  const renderAnswerComponent = (answerType, answer, onChange, value, checked) => {
+  
+
+  const renderAnswerComponent = (answerType, answer, onChange, value) => {
     switch (answerType) {
       case 'dropdown':
         return (
@@ -79,10 +103,15 @@ function Quiz() {
         return (
           <EmailAnswer answer={answer} onChange={onChange} value={value} />
         );
-      case 'checkbox':
-        return (
-          <CheckboxAnswer answer={answer} onChange={onChange} checked={checked} />
-        );
+        case 'input':
+          return (
+            <TextInput
+              answer={answer}
+              onChange={onChange}
+              value={value}
+              inputId={answer.id} // Pass the answer ID as inputId
+            />
+          );
       default:
         return (
           <TextAnswer answer={answer} onSelect={() => handleAnswerSelect(quizData[activeQuestion].id, answer.id, answerType)} />
@@ -102,7 +131,7 @@ function Quiz() {
         <ul className="quiz__answers">
           {quizData[activeQuestion].answers.map((answer) => (
             <li key={answer.id} className={`quiz__answer ${selectedAnswers[quizData[activeQuestion].id] === answer.id ? 'selected' : ''}`}>
-              {renderAnswerComponent(answer.type, answer, handleEmailInput, emailInput, checkboxChecked)}
+              {renderAnswerComponent(answer.type, answer, handleEmailInput, emailInput, handleFirstNameInput, firstNameInput, handleLastNameInput, lastNameInput)}
             </li>
           ))}
         </ul>

@@ -52,10 +52,9 @@
         "question": "Your Name",
         "just": "Entering your full legal name may increase your chances of approval",
         "answers": [
-            { "id": 13, "text": "First Name" },
-            { "id": 14, "text": "Last Name" }
+          { "id": 13, "text": "First Name", "type": "input" },
+          { "id": 14, "text": "Last Name", "type": "input" }
         ]
-    
       }
       
   ]
